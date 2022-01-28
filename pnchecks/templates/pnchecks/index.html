@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Upload Image</title>
+</head>
+
+<body>
+    {% if form.is_multipart %}
+    <form enctype="multipart/form-data" method="post" action="{% url 'form-view' %}">
+        {% else %}
+        <form method="post" action="">
+            {% endif %}
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Upload</button>
+        </form>
+    </form>
+</body>
+
+</html>
