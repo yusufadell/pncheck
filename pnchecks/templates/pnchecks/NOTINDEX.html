@@ -59,34 +59,55 @@
     <div id="wrapper">
         <div id="main">
             <div class="inner">
-                <h1 id="text02">Sed libero aliquam amet consequat</h1>
+                <h1 id="text02">
+                    Sed libero aliquam amet consequat</h1>
                 <p id="text03">Duis non euismod lorem. Sed volutpat velit vel turpis sed vestibulum pharetra. Mauris et
                     lacinia venenatis orci amet vestibulum.</p>
-                <form id="form01" method="post">
-                    <div class="inner">
-                        <div class="field"></div>
-                        <div class="field"><input type="text" name="telephone" id="form01-telephone"
-                                placeholder="Telephone" maxlength="128" /></div>
-                        <div class="actions"><button type="submit">Upload</button></div>
-                    </div><input type="hidden" name="id" value="form01" />
+
+                {% if form.is_multipart %}
+                <form enctype="multipart/form-data" method="post" action="{% url 'form-view' %}">
+                    {% else %}
+                    <form method="post" action="">
+                        {% endif %}
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" style="border-radius: 25px; 
+
+                        height: 3rem;
+                        line-height: 3rem;
+                        padding: 0 1.5rem;
+                        text-transform: uppercase;
+                        font-size: 0.625em;
+                        font-family: 'Source Sans Pro', sans-serif; letter-spacing: 0.4rem; padding-left: calc(0.4rem
+                            + 1.5rem); font-weight: 900; border-radius: 2rem; direction: var(--site-language-direction);
+                            background-color: #33343c; color: #ffffff; transition: color 0.25s ease, background-color
+                            0.25s ease, border-color 0.25s ease; position: relative; ">Upload</button>
+                    </form>
                 </form>
-                <ul id="icons01" class="icons">
-                    <li><a class="n01" href="http://domain.tld/path"><svg>
-                                <use xlink:href="#icon-905"></use>
-                            </svg><span class="label">Twitter</span></a></li>
-                    <li><a class="n02" href="http://domain.tld/path"><svg>
-                                <use xlink:href="#icon-907"></use>
-                            </svg><span class="label">GitHub</span></a></li>
-                    <li><a class="n03" href="http://domain.tld/path"><svg>
-                                <use xlink:href="#icon-928"></use>
-                            </svg><span class="label">Codepen</span></a></li>
-                    <li><a class="n04" href="http://domain.tld/path"><svg>
-                                <use xlink:href="#icon-90a"></use>
-                            </svg><span class="label">Email</span></a></li>
-                </ul>
+                <!-- <form id=" form01" method="post">
+                            <div class="inner">
+                                <div class="field"></div>
+                                <div class="actions"><button type="submit">Upload</button></div>
+                            </div><input type="hidden" name="id" value="form01" />
+                    </form> -->
+                    <ul id="icons01" class="icons">
+                        <li><a class="n01" href="http://domain.tld/path"><svg>
+                                    <use xlink:href="#icon-905"></use>
+                                </svg><span class="label">Twitter</span></a></li>
+                        <li><a class="n02" href="http://domain.tld/path"><svg>
+                                    <use xlink:href="#icon-907"></use>
+                                </svg><span class="label">GitHub</span></a></li>
+                        <li><a class="n03" href="http://domain.tld/path"><svg>
+                                    <use xlink:href="#icon-928"></use>
+                                </svg><span class="label">Codepen</span></a></li>
+                        <li><a class="n04" href="http://domain.tld/path"><svg>
+                                    <use xlink:href="#icon-90a"></use>
+                                </svg><span class="label">Email</span></a></li>
+                    </ul>
             </div>
         </div>
     </div>
+
     <script src="{% static 'js/script.js' %}"></script>
 </body>
 
