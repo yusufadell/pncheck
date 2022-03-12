@@ -1,7 +1,7 @@
 # opencv-python
 # opencv-contrib-python
-opencv-python-headless
-# opencv-contrib-python-headless
+#opencv-python-headless
+opencv-contrib-python-headless
 tensorflow-cpu
 numpy==1.22.1
 gunicorn==20.1.0
