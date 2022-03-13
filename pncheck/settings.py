@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
+import django_heroku
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -24,7 +25,7 @@ SECRET_KEY = '#sbku8sk=z_s^ka)jumu#ntw2=(w6beoq13_(r-_4nb5_#j$kp'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["penumia.herokuapp.com"]
 
 
 # Application definition
@@ -36,8 +37,26 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'pnchecks.apps.PnchecksConfig'
+    'pnchecks.apps.PnchecksConfig',
+    "django.contrib.sites",
+    # 3rd party
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    # social providers
+    "allauth.socialaccount.providers.github",
 ]
+
+
+AUTHENTICATION_BACKENDS = (
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
+
+SITE_ID = 1
+ACCOUNT_EMAIL_VERIFICATION = "none"
+LOGIN_REDIRECT_URL = "form-view"
+ACCOUNT_LOGOUT_ON_GET = True
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -118,6 +137,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-import django_heroku
+
 
 django_heroku.settings(locals())
