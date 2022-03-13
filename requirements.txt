@@ -1,12 +1,6 @@
-<<<<<<< HEAD
 # opencv-python
 # opencv-contrib-python
 #opencv-python-headless
-=======
-opencv-python
-opencv-contrib-python
-opencv-python-headless
->>>>>>> parent of 377662f (test opencv-contrib-python-headles for deployment)
 opencv-contrib-python-headless
 tensorflow-cpu
 numpy==1.22.1
