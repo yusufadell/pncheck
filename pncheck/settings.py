@@ -46,18 +46,21 @@ INSTALLED_APPS = [
 
     # Rest API
     'rest_framework',
+    "rest_framework_api_key",
 
     # social providers
     "allauth.socialaccount.providers.github",
 ]
 
-# new
+# per-view permissions -> go to api/views
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny',
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework_api_key.permissions.HasAPIKey",
     ]
-
 }
+
+# API_KEY_CUSTOM_HEADER = "HTTP_X_API_KEY"
+
 
 AUTHENTICATION_BACKENDS = (
     "allauth.account.auth_backends.AuthenticationBackend",
