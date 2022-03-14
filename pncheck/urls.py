@@ -13,13 +13,25 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import path, include
+from pnchecks.api.views import ImageViewSet
+
+from rest_framework import routers
+from pnchecks.api.views import ImageViewSet
+
+router = routers.DefaultRouter()
+router.register(r'image/accept', ImageViewSet, basename="image/accept")
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('', include('pnchecks.urls')),
+]
 
+# Wire up our API using automatic URL routing.
+urlpatterns += [
+    path('api/v1/', include(router.urls)),
 ]
