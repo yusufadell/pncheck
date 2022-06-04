@@ -1,0 +1,100 @@
+.Btn {
+    width: auto;
+    display: inline-block;
+    padding: 0 18px 0 6px;
+    border: 0 none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 250ms linear;
+}
+.button:hover {
+    text-decoration: none;
+}
+
+.button--social-login {
+    margin-bottom: 12px;
+    margin-right: 12px;
+    color: white;
+    height: 50px;
+    line-height: 46px;
+    position: relative;
+    text-align: left;
+}
+.button--social-login .icon {
+    margin-right: 12px;
+    font-size: 24px;
+    line-height: 24px;
+    width: 42px;
+    height: 24px;
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    top: 4px;
+}
+.button--social-login .icon:before {
+    display: inline-block;
+    width: 40px;
+}
+.button--social-login .icon:after {
+    content: "";
+}
+
+.button--github {
+    background-color: #333;
+    border: 1px solid #1a1a1a;
+}
+.button--github .icon {
+    border-right: 1px solid #1a1a1a;
+}
+.button--github .icon:after {
+    border-right: 1px solid #4d4d4d;
+}
+.button--github:hover {
+    background-color: #262626;
+}
+
+
+#file-upload-button{
+    background: black;
+}
+#id_upload_image {
+    border-radius: 25px;
+    height: 3rem;
+    line-height: 3rem;
+    text-transform: uppercase;
+    font-size: 0.625em;
+    font-family: "Source Sans Pro", sans-serif;
+    letter-spacing: 0.4rem;
+    padding-left: calc(0.4rem + 1.5rem);
+    font-weight: 900;
+    border-radius: 2rem;
+    direction: var(--site-language-direction);
+    background-color: #33343c;
+    color: #ffffff;
+    transition: color 0.25s ease, background-color 0.25s ease,
+        border-color 0.25s ease;
+    position: relative;
+    margin-top: 25px;
+}
+
+.uploadBtn {
+    border-radius: 25px;
+
+    height: 3rem;
+    line-height: 3rem;
+    padding: 0 1.5rem;
+    text-transform: uppercase;
+    font-size: 0.625em;
+    font-family: "Source Sans Pro", sans-serif;
+    letter-spacing: 0.4rem;
+    padding-left: calc(0.4rem + 1.5rem);
+    font-weight: 900;
+    border-radius: 2rem;
+    direction: var(--site-language-direction);
+    background-color: #33343c;
+    color: #ffffff;
+    transition: color 0.25s ease, background-color 0.25s ease,
+        border-color 0.25s ease;
+    position: relative;
+    margin-top: 25px;
+}

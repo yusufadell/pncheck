@@ -269,7 +269,7 @@ a {
     position: relative;
     z-index: 1;
     border-radius: inherit;
-    padding: 4.25rem 3.375rem;
+    padding: 0.25rem 3.375rem;
     max-width: 100%;
     width: 40rem;
 }
