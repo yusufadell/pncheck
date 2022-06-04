@@ -23,10 +23,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '#sbku8sk=z_s^ka)jumu#ntw2=(w6beoq13_(r-_4nb5_#j$kp'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["penumia.herokuapp.com"]
+ALLOWED_HOSTS = ["penumia.herokuapp.com", "*"]
 
+SITE_ID = 3
+
+# cffa61b92d9a86a18a92
+# f2832f048370fa3376997ebe76d494d4fd3ba959
 
 # Application definition
 
@@ -59,21 +63,21 @@ REST_FRAMEWORK = {
     ]
 }
 
-# API_KEY_CUSTOM_HEADER = "HTTP_X_API_KEY"
-
-
 AUTHENTICATION_BACKENDS = (
     "allauth.account.auth_backends.AuthenticationBackend",
 )
 
-SITE_ID = 2
+SITE_ID = 1
 ACCOUNT_EMAIL_VERIFICATION = "none"
-LOGIN_REDIRECT_URL = "form-view"
 ACCOUNT_LOGOUT_ON_GET = True
 
 # To send uri with https (http is django default)
-SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
-SECURE_SSL_REDIRECT = True
+# SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "http")
+LOGIN_REDIRECT_URL = "home"
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = False
+SECURE_SSL_REDIRECT = False
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
