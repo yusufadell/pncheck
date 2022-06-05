@@ -7,8 +7,7 @@ from .utils import pneumonia_check
 
 class FileFieldFormView(FormView):
     form_class = FileFieldForm
-    """TODO: Make Form Work with modifying NOTINDEX.html with the content of index.html both in templates."""
-    template_name = 'pnchecks/NOTINDEX.html'
+    template_name = 'pnchecks/index.html'
     success_url = '/result/'
 
     def post(self, request, *args, **kwargs):
