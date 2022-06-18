@@ -16,7 +16,7 @@ class ImageViewSet(ViewSet):
     """
     serializer_class = UploadSerializer
     permission_classes = [HasAPIKey | IsAuthenticated]
-
+    http_method_names = ['get', 'post', 'head']
     def list(self, request):
         return Response("PnCheck: Have Fun!! ")
 
