@@ -5,8 +5,6 @@ import tensorflow as tf
 MODEL_FILE = "model.h5"
 IMG_SIZE = 128
 
-model = tf.keras.models.load_model(MODEL_FILE)
-
 
 def pneumonia_check(image, IMG_SIZE=128, MODEL_FILE="model.h5"):
     """pneumonia_check: Detect pneumonia symptoms Via Ml Model Enhanced by  mathematical algorithms 
@@ -21,13 +19,15 @@ def pneumonia_check(image, IMG_SIZE=128, MODEL_FILE="model.h5"):
     :return: probability of having pneumonia and a boolean value To indicate so.
     :rtype: pneumonia: int, pnemunia: bool
     """
-    image = cv2.imdecode(numpy.frombuffer(
-        image.read(), numpy.uint8), cv2.IMREAD_GRAYSCALE)
+    image = cv2.imdecode(numpy.frombuffer(image.read(), numpy.uint8),
+                         cv2.IMREAD_GRAYSCALE)
     image = cv2.resize(image, (IMG_SIZE, IMG_SIZE))
     image = image.reshape(1, IMG_SIZE, IMG_SIZE, 1)
-
+    model = tf.keras.models.load_model(MODEL_FILE)
     pneumonia_probability = model.predict([image])[0][0]
     pneumonia = True if pneumonia_probability > 0.5 else False
-    context_varaibles = {"pneumonia_probability": pneumonia_probability, "pneumonia":pneumonia}
+    context_varaibles = {
+        "pneumonia_probability": pneumonia_probability,
+        "pneumonia": pneumonia
+    }
     return context_varaibles
-

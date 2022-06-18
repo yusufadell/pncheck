@@ -13,11 +13,9 @@ class FileFieldFormView(FormView):
     def post(self, request, *args, **kwargs):
         form_class = self.get_form_class()
         form = self.get_form(form_class)
-        images = request.FILES.getlist('image_field')
+        image = request.FILES.get('upload_image')
         if form.is_valid():
-            for image in images:
-
-                result = pneumonia_check(image)
+            result = pneumonia_check(image)
             return render(request, 'pnchecks/result.html', context=result)
         else:
             return self.form_invalid(form)
