@@ -15,7 +15,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
@@ -28,9 +27,6 @@ DEBUG = True
 ALLOWED_HOSTS = ["penumia.herokuapp.com", "*"]
 
 SITE_ID = 3
-
-# cffa61b92d9a86a18a92
-# f2832f048370fa3376997ebe76d494d4fd3ba959
 
 # Application definition
 
@@ -50,7 +46,7 @@ INSTALLED_APPS = [
 
     # Rest API
     'rest_framework',
-    "rest_framework_api_key",
+    "rest_framework_api_key",  #IC9ZHRgh.Mt77IUDCBi0pWvQ3HurlLBDgACV9XDyu
 
     # social providers
     "allauth.socialaccount.providers.github",
@@ -64,8 +60,7 @@ REST_FRAMEWORK = {
 }
 
 AUTHENTICATION_BACKENDS = (
-    "allauth.account.auth_backends.AuthenticationBackend",
-)
+    "allauth.account.auth_backends.AuthenticationBackend", )
 
 SITE_ID = 1
 ACCOUNT_EMAIL_VERIFICATION = "none"
@@ -73,11 +68,10 @@ ACCOUNT_LOGOUT_ON_GET = True
 
 # To send uri with https (http is django default)
 # SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "http")
-LOGIN_REDIRECT_URL = "home"
+LOGIN_REDIRECT_URL = "form-view"
 SESSION_COOKIE_SECURE = False
 CSRF_COOKIE_SECURE = False
 SECURE_SSL_REDIRECT = False
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -109,7 +103,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'pncheck.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
@@ -120,25 +113,27 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
@@ -153,11 +148,9 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-
 
 django_heroku.settings(locals())
